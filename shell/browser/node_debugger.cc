@@ -61,7 +61,7 @@ void NodeDebugger::Start() {
 void NodeDebugger::Stop() {
   auto* inspector = env_->inspector_agent();
   if (inspector && inspector->IsListening()) {
-    inspector->WaitForDisconnect();
+    node::WaitForInspectorDisconnect(env_);
     inspector->Stop();
   }
 }
